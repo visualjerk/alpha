@@ -1,0 +1,17 @@
+@import 'reset';
+@import 'spacing';
+@import 'buttons';
+
+@mixin styles {
+  @include reset;
+  @include spacing;
+  @include buttons;
+}
+
+@if $scope {
+  #{$scope} {
+    @include styles;
+  }
+} @else {
+  @include styles;
+}

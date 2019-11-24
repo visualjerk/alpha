@@ -1,0 +1,50 @@
+@mixin button-variant($variant) {
+  color: map-get($variant, text-color);
+  background-color: map-get($variant, background-color);
+  border-color: map-get($variant, border-color);
+}
+
+@mixin button-size($size) {
+  line-height: map-get($size, height);
+  padding-left: map-get($size, padding);
+  padding-right: map-get($size, padding);
+  border-width: map-get($size, border-width);
+  border-radius: map-get($size, border-radius);
+}
+
+@mixin buttons {
+  .a-button {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0;
+    background: transparent;
+    background-clip: border-box;
+    text-decoration: none;
+    -webkit-appearance: none;
+    white-space: normal;
+    user-select: none;
+    border-style: $button-border-style;
+  
+    @include button-size(map-get($button-sizes, $button-size-default));
+    @include button-variant(map-get($button-variants, $button-variant-default));
+  }
+  
+  @each $name, $size in $button-sizes {
+    .a-button--size-#{$name} {
+      @include button-size($size);
+    }
+  }
+  
+  .a-button--no-padding {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  @each $name, $variant in $button-variants {
+    .a-button--#{$name} {
+      @include button-variant($variant);
+    }
+  }  
+}

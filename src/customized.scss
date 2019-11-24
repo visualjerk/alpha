@@ -1,0 +1,44 @@
+@import 'utils';
+
+$scope: '.theme-custom';
+
+$color-neutral: hsl(260, 3%, 17%);
+$color-primary: hsl(260, 89%, 38%);
+$color-accent: hsl(202, 100%, 54%);
+$color-danger: hsl(339, 93%, 42%);
+
+// Spacing
+$space-unit: 0.4rem;
+
+// Sizes
+$sizes: (
+  space(6),
+  space(8),
+  space(10)
+);
+
+// Borders
+$border-width-1: 2px;
+$border-radius-1: space(20);
+
+@import 'tokens';
+
+$button-variants: (
+  default: (
+    text-color: $text-color-primary,
+    border-color: $border-color-primary,
+    background-color: $background-color-base,
+  ),
+  primary: (
+    text-color: $text-color-white,
+    border-color: $border-color-primary,
+    background-color: $background-color-primary,
+  ),
+  danger: (
+    text-color: $text-color-white,
+    border-color: $border-color-danger,
+    background-color: $background-color-danger,
+  ),
+);
+
+@import 'init';

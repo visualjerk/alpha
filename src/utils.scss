@@ -1,0 +1,7 @@
+@function space($multiplier) {
+  @return $multiplier * $space-unit;
+}
+
+@function size($index) {
+  @return nth($sizes, $index);
+}

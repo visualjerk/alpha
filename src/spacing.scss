@@ -1,0 +1,28 @@
+$prefixes: (m, p);
+
+$directions: (
+  t: top,
+  r: right,
+  b: bottom,
+  l: left,
+  v: top bottom,
+  h: left right,
+);
+
+@mixin spacing {
+  @each $prefix in $prefixes {
+    @for $i from 0 through 20 {
+      .#{$prefix}-#{$i} {
+        margin: space($i);
+      }
+  
+      @each $name, $direction in $directions {
+        .#{$prefix}-#{$name}-#{$i} {
+          @each $d in $direction {
+            margin-#{$d}: space($i);
+          }
+        }
+      }
+    }
+  }
+}
